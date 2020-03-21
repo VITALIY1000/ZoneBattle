@@ -1,0 +1,32 @@
+body {
+	user-select: none;
+	display: flex;
+	padding: 10px;
+	margin: 0;
+}
+#game-canvas {
+	margin-left: 10px;
+	margin-right: 10px;
+	outline: 1px solid #000000;
+}
+#fixed-text {
+	position: fixed;
+	display: block;
+	text-align: center;
+	width: calc(100% - 20px);
+	height: calc(100% - 20px);
+}
+.info {
+	padding: 10px;
+	/*visibility: hidden;*/
+	outline: 1px solid black;
+	width: 100px;
+	text-align: center;
+	flex-grow: 1;
+}
+.pl-name {
+	font-size: 32px;
+}
+.player {
+	position: absolute;
+}
