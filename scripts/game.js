@@ -56,7 +56,10 @@ function frameUpdate() {
 	updateGameValues();
 
 	if (gameStarted && !gamePaused) {
-		if (reCalc) calculatePercentes();
+		if (reCalc) {
+			reCalc = false;
+			calculatePercentes();
+		}
 
 		for (let i = 0; i < players.length; i++) {
 			if (players[i].direction == 0) 
@@ -179,7 +182,22 @@ function updateGameValues() {
 		speed = Math.round(d / 500 + 0.3);
 		canvas.width = d;
 		canvas.height = d;
-		if (gameStarted) start();
+		let array = document.querySelectorAll(".controller div button");
+		let infoW = document.getElementsByClassName("info")[0];
+
+		for (let i = 0; i < array.length; i++) {
+			array[i].style.width = Math.round(infoW.offsetWidth / 10 * 3) + "px";
+			array[i].style.height = Math.round(infoW.offsetWidth / 10 * 3) + "px";
+			array[i].style.fontSize = Math.round(infoW.offsetWidth / 6) + "px";
+		}
+
+		let elems = document.querySelectorAll(".controller");
+		elems[0].style.top = h - 20 - elems[0].offsetHeight + "px";
+		elems[1].style.top = h - 20 - elems[1].offsetHeight + "px";
+		elems[1].style.left = w - 20 - elems[1].offsetWidth + "px";
+
+
+		if (gameStarted) start();    
 	}
 
 	for (let i = 0; i < players.length; i++) {

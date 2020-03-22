@@ -2,22 +2,47 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<title>ZoneBattle</title>
 	<link rel="stylesheet" type="text/css" href="styles/game.css">
 	<link rel="shortcut icon" href="res/icon.png" type="image/png">
 </head>
-<body>
-	<div id="fixed-text">
-		Press 'Space' to start game
-	</div>
+<body onclick="if(!gameStarted)start()">
+	<div id="fixed-text">Press 'Space' to start game</div>
 	<div class="info" style="background-color: rgba(255, 0, 0, .5);">
 		<div class="pl-name">Player1</div><br>
-		<div class="pl-percentes">0%</div><br>
+		<div class="pl-percentes">0%</div>
+		<div class="controller">
+			<div>
+				<button onclick="onKeyDown({'type':'keydown','code':'KeyW'})">&#8657;</button>
+			</div>
+			<div>
+				<button onclick="onKeyDown({'type':'keydown','code':'KeyA'})">&#8656;</button>
+				<button onclick="paint(0)">o</button>
+				<button onclick="onKeyDown({'type':'keydown','code':'KeyD'})">&#8658;</button>
+			</div>
+			<div>
+				<button onclick="onKeyDown({'type':'keydown','code':'KeyS'})">&#8659;</button>
+			</div>
+		</div>
 	</div>
 	<canvas id="game-canvas"></canvas>
 	<div class="info" style="background-color: rgba(0, 0, 255, .5);">
 		<div class="pl-name">Player2</div><br>
-		<div class="pl-percentes">0%</div><br>
+		<div class="pl-percentes">0%</div>
+		<div class="controller">
+			<div>
+				<button onclick="onKeyDown({'type':'keydown','code':'ArrowUp'})">&#8657;</button>
+			</div>
+			<div>
+				<button onclick="onKeyDown({'type':'keydown','code':'ArrowLeft'})">&#8656;</button>
+				<button onclick="paint(1)">o</button>
+				<button onclick="onKeyDown({'type':'keydown','code':'ArrowRight'})">&#8658;</button>
+			</div>
+			<div>
+				<button onclick="onKeyDown({'type':'keydown','code':'ArrowDown'})">&#8659;</button>
+			</div>
+		</div>
 	</div>
 	<div id="players-container"></div>
 	<script src="scripts/game.js"></script>
